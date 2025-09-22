@@ -19,7 +19,7 @@ const _dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://url-shortner-lf1x.onrender.com",
     credentials: true,
   })
 );
