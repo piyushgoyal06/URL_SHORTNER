@@ -35,7 +35,7 @@ app.use("/api/user", user_routes);
 app.use("/api/auth", auth_routes);
 app.use("/api/create", short_url);
 
-app.get("/:id", redirectFromShortUrl);
+app.get("/api/:id", redirectFromShortUrl);
 
 app.use(errorHandler);
 
@@ -47,5 +47,4 @@ app.get(/.*/, (req, res) => {
 
 app.listen(3000, () => {
   connectDB();
-  console.log("Server is running on http://localhost:3000");
 });
