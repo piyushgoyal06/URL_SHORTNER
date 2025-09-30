@@ -35,15 +35,15 @@ app.use("/api/user", user_routes);
 app.use("/api/auth", auth_routes);
 app.use("/api/create", short_url);
 
-app.get("/api/:id", redirectFromShortUrl);
-
-app.use(errorHandler);
-
 app.use(express.static(path.join(_dirname, "/Frontend/dist")));
 
 app.get(/.*/, (req, res) => {
   res.sendFile(path.resolve(_dirname, "Frontend", "dist", "index.html"));
 });
+
+app.get("/:id", redirectFromShortUrl);
+
+app.use(errorHandler);
 
 app.listen(3000, () => {
   connectDB();
